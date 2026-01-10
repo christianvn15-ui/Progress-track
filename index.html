@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Progress Tracker</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#121212">
+</head>
+<body>
+  <h2>Upload Progress Image</h2>
+
+  <label class="custom-file-upload">
+    <input type="file" id="fileInput" accept="image/*">
+    Choose Image
+  </label>
+
+  <br><br>
+
+  <input type="text" id="recordTime" placeholder="Record time (e.g. 00:00)">
+  <input type="text" id="pushups" placeholder="Push-ups (e.g. 00)">
+
+  <br><br>
+
+  <div class="overlay-container">
+    <img id="preview" alt="Preview">
+    <div id="overlayText" class="overlay-text"></div>
+  </div>
+
+  <br>
+  <button id="saveBtn" style="display:none;">Save</button>
+  <button id="installBtn" style="display:none;">Install App</button>
+
+  <script src="script.js"></script>
+  <script>
+    // Register service worker
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js")
+        .then(() => console.log("Service Worker registered"))
+        .catch(err => console.error("Service Worker registration failed:", err));
+    }
+  </script>
+</body>
+</html>
