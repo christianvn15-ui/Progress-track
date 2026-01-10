@@ -5,6 +5,9 @@ body {
   margin: 0;
   padding: 40px;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 h2 {
@@ -53,10 +56,11 @@ input[type="text"]:focus {
   position: relative;
   display: inline-block;
   margin-top: 20px;
+  max-width: 100%;
 }
 
 #preview {
-  max-width: 90%;
+  max-width: 100%;
   border-radius: 8px;
   display: none;
 }
@@ -96,20 +100,30 @@ button:hover {
   background: #005a9e;
 }
 
-/* Existing styles remain the same */
+/* ✅ Mobile-friendly layout */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
 
-#installBtn {
-  margin-top: 20px;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 6px;
-  background: #28a745;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
+  input[type="text"] {
+    width: 90%;
+    font-size: 16px;
+  }
 
-#installBtn:hover {
-  background: #1e7e34;
+  .custom-file-upload {
+    width: 90%;
+    font-size: 16px;
+    text-align: center;
+  }
+
+  button {
+    width: 90%;
+    font-size: 16px;
+  }
+
+  .overlay-text {
+    font-size: 24px;
+    padding: 10px;
+  }
 }
