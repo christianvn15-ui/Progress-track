@@ -1,32 +1,37 @@
+/* Force mobile-only layout */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   background: #121212;
   color: #fff;
   margin: 0;
-  padding: 40px 20px;
+  padding: 20px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 100vh;
   width: 100vw;
+  max-width: 480px; /* lock to smartphone width */
+  margin: 0 auto;   /* center on larger screens */
 }
 
 h2 {
   margin-bottom: 20px;
   font-weight: 600;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .custom-file-upload {
-  display: inline-block;
-  padding: 12px 24px;
+  display: block;
+  width: 100%;
+  padding: 12px;
   cursor: pointer;
   background: #0078d7;
   color: #fff;
   border-radius: 6px;
   font-size: 16px;
   transition: background 0.3s;
+  text-align: center;
 }
 
 .custom-file-upload:hover {
@@ -38,9 +43,9 @@ h2 {
 }
 
 input[type="text"] {
-  margin: 10px;
-  padding: 14px;
-  width: 260px;
+  margin: 10px 0;
+  padding: 12px;
+  width: 100%;
   border-radius: 6px;
   border: none;
   outline: none;
@@ -57,17 +62,19 @@ input[type="text"]:focus {
 
 .overlay-container {
   position: relative;
-  display: inline-block;
+  display: block;
+  width: 100%;
   margin-top: 20px;
-  max-width: 100%;
 }
 
 #preview {
-  max-width: 100%;
+  width: 100%;
+  height: auto;
   border-radius: 8px;
   display: none;
 }
 
+/* Overlay covers entire image and scales with it */
 .overlay-text {
   position: absolute;
   top: 0;
@@ -77,21 +84,22 @@ input[type="text"]:focus {
   pointer-events: none;
   color: white;
   font-weight: bold;
-  font-size: 36px;
+  font-size: 28px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: space-evenly; /* evenly spaced vertically */
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 8px;
   display: none;
-  padding: 20px;
-  line-height: 1.4;
+  padding: 10px;
+  line-height: 1.8; /* bigger vertical gap */
 }
 
 button {
-  margin-top: 20px;
-  padding: 14px 24px;
+  margin-top: 15px;
+  padding: 12px;
+  width: 100%;
   border: none;
   border-radius: 6px;
   background: #0078d7;
@@ -103,19 +111,4 @@ button {
 
 button:hover {
   background: #005a9e;
-}
-
-/* ✅ Mobile-friendly layout */
-@media (max-width: 600px) {
-  input[type="text"],
-  .custom-file-upload,
-  button {
-    width: 100%;
-    font-size: 16px;
-  }
-
-  .overlay-text {
-    font-size: 28px;
-    padding: 10px;
-  }
 }
